@@ -12,16 +12,10 @@ const Dashboard: React.FC = () => {
         {value: 'Ana2', label: 'Ana2'}
     ];
 
-    const optionsFrutas = [
-        {value: 'Maça', label: 'Maça'},
-        {value: 'Maça1', label: 'Maça1'},
-        {value: 'Maça2', label: 'Maça2'}
-    ];
-
     return (
         <Container>
             <ContentHeader title="Dashboard" lineColor="#F7931B">
-                <SelectInput options={optionsName} />
+                <SelectInput options={optionsName} onChange={() => {}}/>
             </ContentHeader>            
         </Container>
     );
