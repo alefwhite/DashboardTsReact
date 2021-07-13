@@ -1,14 +1,19 @@
 import React, { useState, useMemo } from "react";
 
 import ContentHeader from "../../components/ContentHeader";
-import { Container } from "./styles";
-
+import MessageBox from "../../components/MessageBox";
 import SelectInput from '../../components/SelectInput';
+import WalletBox from '../../components/WalletBox';
+
+import happyImg from '../../assets/happy.svg'
+import sadImg from '../../assets/sad.svg'
 
 import expenses from '../../repositories/expenses';
 import gains from '../../repositories/gains';
 
 import listOfMonths from '../../utils/months';
+
+import { Container, Content } from "./styles";
 
 const Dashboard: React.FC = () => {
     const [monthSelected, setMothSelected] = useState<number>(new Date().getMonth() + 1);
@@ -82,7 +87,38 @@ const Dashboard: React.FC = () => {
                         onChange={(e) => handleYearSelected(e.target.value)} 
                         defaultValue={yearSelected}
                     />
-            </ContentHeader>            
+            </ContentHeader>
+            <Content>
+                <WalletBox 
+                    title="Saldo"
+                    amount={150.00}
+                    footerLabel="atualizado com base nas entradas e saídas"
+                    icon="dolar"
+                    color="#4E41F0"
+                />
+                <WalletBox 
+                    title="Entradas"
+                    amount={5000.00}
+                    footerLabel="atualizado com base nas entradas e saídas"
+                    icon="arrowUp"
+                    color="#F7931B"
+                />
+                <WalletBox 
+                    title="Saídas"
+                    amount={4850.00}
+                    footerLabel="atualizado com base nas entradas e saídas"
+                    icon="arrowDown"
+                    color="#E44C4E"
+                />
+
+                <MessageBox 
+                    title="Muito bem!"
+                    description="Sua carteira está positiva!"
+                    footerText="Continue assim. Considere investir o seu saldo."
+                    icon={happyImg}                        
+                />  
+                
+            </Content>            
         </Container>
     );
 }
