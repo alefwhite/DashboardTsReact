@@ -4,6 +4,7 @@ import ContentHeader from "../../components/ContentHeader";
 import MessageBox from "../../components/MessageBox";
 import SelectInput from '../../components/SelectInput';
 import WalletBox from '../../components/WalletBox';
+import PieChart from '../../components/PieChart';
 
 import happyImg from '../../assets/happy.svg'
 import sadImg from '../../assets/sad.svg'
@@ -19,13 +20,7 @@ import { Container, Content } from "./styles";
 const Dashboard: React.FC = () => {
     const [monthSelected, setMothSelected] = useState<number>(new Date().getMonth() + 1);
     const [yearSelected, setYearSelected] = useState<number>(new Date().getFullYear());
-
-    const optionsName = [
-        {value: 'Ana', label: 'Ana'},
-        {value: 'Ana1', label: 'Ana1'},
-        {value: 'Ana2', label: 'Ana2'}
-    ];
-
+    
     const years = useMemo(() => {
         let uniqueYears: number[] = [];
 
@@ -188,6 +183,8 @@ const Dashboard: React.FC = () => {
                     footerText={message.footerText}
                     icon={message.icon}
                 />
+
+                <PieChart />
 
             </Content>
         </Container>
